@@ -92,8 +92,8 @@ public class baseclass {
                 options.addArguments("--headless");
                 options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36");
 
-                //dr.set(new ChromeDriver(options));
-                dr.set(new ChromeDriver());
+                dr.set(new ChromeDriver(options));
+                //dr.set(new ChromeDriver());
                 driver().manage().window().maximize();
                 driver().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
                 driver().manage().deleteAllCookies();
