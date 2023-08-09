@@ -14,7 +14,7 @@ public class naukari extends baseclass {
         driver().manage().window().maximize();
         driver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver().get("https://www.naukri.com/");
-        logger().log(Status.INFO,"site get open");
+        logger().log(Status.INFO,driver().getTitle());
         addScreemshot();
         Thread.sleep(2000);
         WebElement aa = driver().findElement(By.xpath("//*[@id='login_Layer']"));
@@ -40,7 +40,7 @@ public class naukari extends baseclass {
             Thread.sleep(3000);
             if (driver().getCurrentUrl().equalsIgnoreCase("https://www.naukri.com/mnjuser/homepage")) {
                 logger().log(Status.INFO,"user logged in ");
-                logger().log(Status.INFO,driver().getCurrentUrl());
+                logger().log(Status.INFO,driver().getTitle());
                 driver().findElement(By.xpath("//*[@class='view-profile-wrapper']/a")).click();
                 logger().log(Status.INFO,"click on My profile ");
                 logger().log(Status.INFO,driver().getCurrentUrl());
@@ -76,7 +76,7 @@ public class naukari extends baseclass {
         driver().manage().window().maximize();
         driver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver().get("https://www.naukri.com/");
-        logger().log(Status.INFO,"site get open");
+        logger().log(Status.INFO,driver().getTitle());
         addScreemshot();
         Thread.sleep(2000);
         WebElement aa = driver().findElement(By.xpath("//*[@id='login_Layer']"));

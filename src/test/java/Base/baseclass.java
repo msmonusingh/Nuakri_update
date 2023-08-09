@@ -13,7 +13,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v112.network.Network;
+import org.openqa.selenium.devtools.v115.network.Network;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.io.FileHandler;
@@ -87,13 +87,15 @@ public class baseclass {
                 System.out.println("----->"+System.getProperty("browser"));
                 System.out.println("----->"+System.getProperty("envvalue"));
                 options = new ChromeOptions();
+                options.setBrowserVersion("116");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--headless");
-                options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36");
+               options.addArguments("--headless=new");
+//                options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36");
+//
 
                 dr.set(new ChromeDriver(options));
-                //dr.set(new ChromeDriver());
+               //dr.set(new ChromeDriver());
                 driver().manage().window().maximize();
                 driver().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
                 driver().manage().deleteAllCookies();
