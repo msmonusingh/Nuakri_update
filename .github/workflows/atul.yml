@@ -1,7 +1,7 @@
-name: Atul ka kam 
+name: Automation Workflow
 on:
   workflow_run:
-    workflows: ["React code"]
+    workflows: ["Development Workflow"]
     types:
       - completed
 jobs:
