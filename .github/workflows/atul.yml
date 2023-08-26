@@ -4,7 +4,7 @@ on:
     workflows: ["Development Workflow"]
     types:
       - completed
-    workflow: "AtulSinghAtul/react-router-login-signup-app /.github/workflows/development.yml"
+    workflow: "AtulSinghAtul/react-router-login-signup-app/.github/workflows/main.yml"
 jobs:
   build:
     runs-on: ubuntu-latest
