@@ -14,7 +14,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v115.network.Network;
+import org.openqa.selenium.devtools.v140.network.Network;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.io.FileHandler;
@@ -85,11 +85,8 @@ public class baseclass {
         if (driver() == null) {
             if (System.getProperty("browser").equals("chrome")) {
                 System.out.println("browser equal hai");
-                System.setProperty("webdriver.manager", "false");
-
                 System.out.println("----->"+System.getProperty("browser"));
                 System.out.println("----->"+System.getProperty("envvalue"));
-                WebDriverManager.chromedriver().setup();
                 options = new ChromeOptions();
                 options.setBrowserVersion("116");
                 options.addArguments("--no-sandbox");
@@ -385,7 +382,7 @@ public class baseclass {
     public static void chromeNetworkResponse() {
         devtool = ((ChromeDriver) driver()).getDevTools();
         devtool.createSession();
-        devtool.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+        devtool.send(Network.enable( Optional.empty(),Optional.empty(),Optional.empty(), Optional.empty()));
         devtool.addListener(Network.responseReceived(), responseReceived ->
         {
             if ((responseReceived.getResponse().getStatus().toString().startsWith("40"))) {
