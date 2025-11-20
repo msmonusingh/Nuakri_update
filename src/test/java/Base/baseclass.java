@@ -6,6 +6,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.commons.io.FileUtils;
@@ -86,7 +87,7 @@ public class baseclass {
                 System.out.println("browser equal hai");
                 System.out.println("----->"+System.getProperty("browser"));
                 System.out.println("----->"+System.getProperty("envvalue"));
-
+                WebDriverManager.chromedriver().setup();
                 options = new ChromeOptions();
                 options.setBrowserVersion("116");
                 options.addArguments("--no-sandbox");
