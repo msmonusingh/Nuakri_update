@@ -92,6 +92,7 @@ public class baseclass {
                 options.addArguments("--no-sandbox");
               options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--headless=new");
+                options.addArguments("--remote-allow-origins=*");
                 //options.addArguments("--headless", "--window-size=1920,1200");
 
                 // options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36");
