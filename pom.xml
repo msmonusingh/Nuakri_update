@@ -26,7 +26,7 @@
                     <!--suppress UnresolvedMavenProperty -->
                     <groups>${groups}</groups>
                     <parallel>methods</parallel>
-                    <threadCount>2</threadCount>
+                    <threadCount>1</threadCount>
                 </configuration>
             </plugin>
         </plugins>

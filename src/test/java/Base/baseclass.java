@@ -77,7 +77,7 @@ public class baseclass {
             extent = new ExtentReports();
             ExtentSparkReporter spark = new ExtentSparkReporter("report/page.html");
             spark.config().setTheme(Theme.DARK);
-            spark.config().setDocumentTitle("synkdup report");
+            spark.config().setDocumentTitle("Automation report");
             spark.config().setReportName("shivam");
             extent.attachReporter(spark);
         }
@@ -91,8 +91,8 @@ public class baseclass {
                 options.setBrowserVersion("116");
 //                options.addArguments("--no-sandbox");
 //                options.addArguments("--disable-dev-shm-usage");
-                //options.addArguments("--headless=new");
-                options.addArguments("--headless", "--window-size=1920,1200");
+                options.addArguments("--headless=new");
+               // options.addArguments("--headless", "--window-size=1920,1200");
 
                 // options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36");
                 dr.set(new ChromeDriver(options));
@@ -139,15 +139,9 @@ public class baseclass {
         //Desktop.getDesktop().browse(new File("report/page.html").toURI());
     }
 
-    public static String screenShot() throws IOException {
-        Date d = new Date();
-        String d1 = d.toString().replace(" ", "_").replace(":", "_");
-        File src = ((TakesScreenshot) driver()).getScreenshotAs(OutputType.FILE);
-        File dest = new File("screen/pic_" + d1 + ".png");
-
-        FileUtils.copyFile(src, dest);
-        String finalpath = dest.getAbsolutePath();
-        return finalpath;
+    public static String screenShot2() throws IOException {
+        String src = ((TakesScreenshot) driver()).getScreenshotAs(OutputType.BASE64);
+        return src;
     }
 
     public static void flogin(WebElement element) throws InterruptedException {
@@ -351,17 +345,14 @@ public class baseclass {
 
     }
 
+
     public static void addScreemshot() throws IOException {
-        String screen = screenShot();
-        logger().log(Status.INFO, "Screenshot of this page", MediaEntityBuilder.createScreenCaptureFromPath(screen).build());
-        //logger(.log(Status.INFO, MediaEntity.MediaEntityBuilder.<String>createScreenCaptureFromPath(screen).build());
+        String screen = screenShot2();
+        logger().log(Status.INFO,MediaEntityBuilder.createScreenCaptureFromBase64String(screen).build());
+        logger().log(Status.INFO, "Screenshot of this page", MediaEntityBuilder.createScreenCaptureFromBase64String(screen).build());
+        //
     }
 
-    public static void addScreemshot_with_somedetails(String details) throws IOException {
-        String screen = screenShot();
-        logger().log(Status.INFO, details, MediaEntityBuilder.createScreenCaptureFromPath(screen).build());
-        //logger(.log(Status.INFO, MediaEntity.MediaEntityBuilder.<String>createScreenCaptureFromPath(screen).build());
-    }
 
     public static void SelectByValue(WebElement element, String value) {
         //WebElement element = driver().findElement(By.xpath(selectvaluexpath));
