@@ -85,6 +85,8 @@ public class baseclass {
         if (driver() == null) {
             if (System.getProperty("browser").equals("chrome")) {
                 System.out.println("browser equal hai");
+                System.setProperty("webdriver.manager", "false");
+
                 System.out.println("----->"+System.getProperty("browser"));
                 System.out.println("----->"+System.getProperty("envvalue"));
                 WebDriverManager.chromedriver().setup();
